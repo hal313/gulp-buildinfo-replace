@@ -2,9 +2,9 @@
 
 > Inject version info into HTML (package.json, git commit, build info).
 
-[![Build Status](http://img.shields.io/travis/hal313/-npm-buildinfo-replace/master.svg?style=flat-square)](https://travis-ci.org/hal313/-npm-buildinfo-replace)
-[![NPM version](http://img.shields.io/npm/v/-npm-buildinfo-replace.svg?style=flat-square)](https://www.npmjs.com/package/-npm-buildinfo-replace)
-[![Dependency Status](http://img.shields.io/david/hal313/-npm-buildinfo-replace.svg?style=flat-square)](https://david-dm.org/hal313/-npm-buildinfo-replace)
+[![Build Status](http://img.shields.io/travis/hal313/gulp-npm-buildinfo-replace/master.svg?style=flat-square)](https://travis-ci.org/hal313/gulp-npm-buildinfo-replace)
+[![NPM version](http://img.shields.io/npm/v/gulp-npm-buildinfo-replace.svg?style=flat-square)](https://www.npmjs.com/package/gulp-npm-buildinfo-replace)
+[![Dependency Status](http://img.shields.io/david/hal313/gulp-npm-buildinfo-replace.svg?style=flat-square)](https://david-dm.org/hal313/gulp-npm-buildinfo-replace)
 
 ## Information
 
