@@ -1,7 +1,7 @@
 {
   "name": "gulp-npm-buildinfo-replace",
   "description": "Inject version info into HTML (package.json, git commit, build info)",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "homepage": "https://github.com/hal313/gulp-npm-buildinfo-replace",
   "repository": {
     "type": "git",
