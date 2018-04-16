@@ -26,7 +26,7 @@ module.exports = function(opts) {
             indentString = new Array(opts.indent + 1).join(' '),
             content,
             generateString = function generateString(name, value) {
-                var content = indentString
+                var content = indentString;
                 if (opts.meta) {
                     content += '<meta name="' + name + '" content="' + value + '">';
                 } else {
