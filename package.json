@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git://github.com/hal313/gulp-npm-buildinfo-replace.git"
   },
+  "scripts": {
+      "test": "echo No tests"
+  },
   "author": {
     "name": "John Ghidiu",
     "url": "http://www.johnghidiu.com"
