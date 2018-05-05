@@ -44,7 +44,7 @@ var buildInfoReplace = require('gulp-npm-buildinfo-replace');
 // Basic usage:
 gulp.task('buildInfo', function(){
   gulp.src('./index.html')
-  .pipe(buildInfoReplace(meta: true)) // Elements will be meta tags, not comments
+  .pipe(buildInfoReplace({meta: true})) // Elements will be meta tags, not comments
   .pipe(gulp.dest('./'));
 });
 
