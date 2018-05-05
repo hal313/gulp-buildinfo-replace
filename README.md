@@ -62,7 +62,6 @@ Example:
 
 ```js
 .pipe(buildInfoReplace({tag: 'head'})) // Puts the information into the 'head' DOM element
-
 ```
 
 ### options.indent
