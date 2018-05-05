@@ -10,7 +10,7 @@
 
 <table>
 <tr>
-<td>Package</td><td>-npm-buildinfo-replace</td>
+<td>Package</td><td>gulp-npm-buildinfo-replace</td>
 </tr>
 <tr>
 <td>Description</td>
