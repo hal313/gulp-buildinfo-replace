@@ -10,7 +10,7 @@
 
 <table>
 <tr>
-<td>Package</td><td>-npm-buildinfo-replace</td>
+<td>Package</td><td>gulp-npm-buildinfo-replace</td>
 </tr>
 <tr>
 <td>Description</td>
@@ -44,7 +44,7 @@ var buildInfoReplace = require('gulp-npm-buildinfo-replace');
 // Basic usage:
 gulp.task('buildInfo', function(){
   gulp.src('./index.html')
-  .pipe(buildInfoReplace(meta: true)) // Elements will be meta tags, not comments
+  .pipe(buildInfoReplace({meta: true})) // Elements will be meta tags, not comments
   .pipe(gulp.dest('./'));
 });
 
@@ -62,7 +62,6 @@ Example:
 
 ```js
 .pipe(buildInfoReplace({tag: 'head'})) // Puts the information into the 'head' DOM element
-
 ```
 
 ### options.indent
@@ -86,7 +85,7 @@ Places the package.json version.
 Example:
 
 ```js
-.pipe(buildInfoReplacegtag({version: true}))
+.pipe(buildInfoReplace({version: true}))
 ```
 
 ### options.commit
@@ -98,7 +97,7 @@ Places the git commit.
 Example:
 
 ```js
-.pipe(buildInfoReplacegtag({commit: true}))
+.pipe(buildInfoReplace({commit: true}))
 ```
 
 ### options.branch
@@ -110,7 +109,7 @@ Places the git branch.
 Example:
 
 ```js
-.pipe(buildInfoReplacegtag({branch: true}))
+.pipe(buildInfoReplace({branch: true}))
 ```
 
 ### options.utcdate
@@ -122,7 +121,7 @@ Places the UTC formatted date.
 Example:
 
 ```js
-.pipe(buildInfoReplacegtag({utcdate: true}))
+.pipe(buildInfoReplace({utcdate: true}))
 ```
 
 ### options.buildms
@@ -134,7 +133,7 @@ Places the timestamp as milliseconds.
 Example:
 
 ```js
-.pipe(buildInfoReplacegtag({buildms: true}))
+.pipe(buildInfoReplace({buildms: true}))
 ```
 
 ### options.meta
@@ -146,7 +145,7 @@ Places the build information as meta elements instead of comments.
 Example:
 
 ```js
-.pipe(buildInfoReplacegtag({meta: true}))
+.pipe(buildInfoReplace({meta: true}))
 ```
 
 
