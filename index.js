@@ -4,44 +4,65 @@ var through = require('through2'),
     packageJSON = JSON.parse(fs.readFileSync('./package.json')),
     git = require('git-rev-sync');
 
-module.exports = function(opts) {
-    opts                 = opts || {};
-    opts.tag             = opts.tag || 'head';
-    opts.version         = !!opts.version || true;
-    opts.commit          = !!opts.commit;
-    opts.branch          = !!opts.branch;
-    opts.utcdate         = !!opts.utcdate;
-    opts.buildms         = !!opts.buildms;
-    opts.meta            = !!opts.meta;
-    // opts.indent can be 0, so check for undefined instead of presence
-    opts.indent          = undefined != opts.indent ? opts.indent : 4;
+module.exports = function (opts) {
+    'use strict';
 
-    return through.obj(function(file, enc, cb) {
+    opts                = opts || {};
+    opts.tag            = opts.tag || 'head';
+    opts.version        = !!opts.version || true;
+    opts.commit         = !!opts.commit;
+    opts.branch         = !!opts.branch;
+    opts.utcdate        = !!opts.utcdate;
+    opts.buildms        = !!opts.buildms;
+    opts.meta           = !!opts.meta;
+    opts.gitdir         = opts.gitdir || process.cwd();
+    opts.unknownCommit  = opts.unknownCommit || 'unknown';
+    opts.unknownBranch  = opts.unknownBranch || 'unknown';
+    // opts.indent can be 0, so check for undefined instead of presence
+    opts.indent         = undefined !== opts.indent ? opts.indent : 4;
+
+    return through.obj(function (file, encoding, callback) {
         var buildInfoString = '',
             version = packageJSON.version,
-            commit = git.long(),
-            branch = git.branch(),
+            /**
+             * Attempts to invoke a function.
+             *
+             * @param fn the function to invoke
+             * @param args an array of parameters to pass in
+             * @param defaultValue the value to return if fn fails
+             * @param failureMessage the optional message to show when an error occurs
+             */
+            attempt = (fn, args, defaultValue, failureMessage) => {
+                try {
+                    return fn.apply({}, args);
+                } catch (error) {
+                    console.log(failureMessage || ((error && error.message) || 'unknown error'));
+                    return defaultValue || '';
+                }
+            },
+            branch = attempt(git.branch, [opts.gitdir], opts.unknownBranch, 'Could not get git branch information. Check to see if a .git folder exists'),
+            commit = attempt(git.long, [opts.gitdir], opts.unknownCommit, 'Could not get git commit information. Check to see if a .git folder exists'),
             utcdate = new Date().toUTCString(),
             buildms = new Date().getTime(),
             indentString = new Array(opts.indent + 1).join(' '),
             content,
             generateString = function generateString(name, value) {
-                var content = indentString;
+                var stringContent = indentString;
                 if (opts.meta) {
-                    content += '<meta name="' + name + '" content="' + value + '">';
+                    stringContent += '<meta name="' + name + '" content="' + value + '">';
                 } else {
-                    content += '<!-- ' + name + ': ' + value + ' -->';
+                    stringContent += '<!-- ' + name + ': ' + value + ' -->';
                 }
-                content += '\n';
-                return content;
+                stringContent += '\n';
+                return stringContent;
             };
 
         if (file.isNull()) {
-            return cb(null, file);
+            return callback(null, file);
         }
 
         if (file.isStream()) {
-            return cb(new Error('gulp-npm-buildinfo-replace: streams not supported'));
+            return callback(new Error('gulp-npm-buildinfo-replace: streams not supported'));
         }
 
         // Populate the content string
@@ -74,7 +95,7 @@ module.exports = function(opts) {
         file.contents = new Buffer(content);
 
         // Notify Gulp that we are done
-        cb(null, file);
+        callback(null, file);
     });
 
 };
