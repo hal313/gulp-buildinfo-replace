@@ -148,6 +148,42 @@ Example:
 .pipe(buildInfoReplace({meta: true}))
 ```
 
+### options.gitdir
+Specifies the git directory to use. Useful if git modules are being used.
+
+    Type: `String`
+    Default: `process.cwd()`
+
+Example:
+
+```js
+.pipe(buildInfoReplace({gitdir: '../project-root/submodule'}))
+```
+
+### options.unknownCommit
+The string to use when the commit cannot be found.
+
+    Type: `String`
+    Default: `unknown`
+
+Example:
+
+```js
+.pipe(buildInfoReplace({unknownCommit: 'unknown_commit'}))
+```
+
+### options.unknownBranch
+The string to use when the branch cannot be found.
+
+    Type: `String`
+    Default: `unknown`
+
+Example:
+
+```js
+.pipe(buildInfoReplace({unknownBranch: 'unknown_branch'}))
+```
+
 
 ## LICENSE
 
