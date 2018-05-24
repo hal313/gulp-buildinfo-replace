@@ -62,7 +62,7 @@ module.exports = function (opts) {
         }
 
         if (file.isStream()) {
-            return callback(new Error('gulp-npm-buildinfo-replace: streams not supported'));
+            return callback(new Error('gulp-buildinfo-replace: streams not supported'));
         }
 
         // Populate the content string

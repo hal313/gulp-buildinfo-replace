@@ -1,16 +1,16 @@
-# gulp-npm-buildinfo-replace
+# gulp-buildinfo-replace
 
 > Inject version info into HTML (package.json, git commit, build info).
 
-[![Build Status](http://img.shields.io/travis/hal313/gulp-npm-buildinfo-replace/master.svg?style=flat-square)](https://travis-ci.org/hal313/gulp-npm-buildinfo-replace)
-[![NPM version](http://img.shields.io/npm/v/gulp-npm-buildinfo-replace.svg?style=flat-square)](https://www.npmjs.com/package/gulp-npm-buildinfo-replace)
-[![Dependency Status](http://img.shields.io/david/hal313/gulp-npm-buildinfo-replace.svg?style=flat-square)](https://david-dm.org/hal313/gulp-npm-buildinfo-replace)
+[![Build Status](http://img.shields.io/travis/hal313/gulp-buildinfo-replace/master.svg?style=flat-square)](https://travis-ci.org/hal313/gulp-buildinfo-replace)
+[![NPM version](http://img.shields.io/npm/v/gulp-buildinfo-replace.svg?style=flat-square)](https://www.npmjs.com/package/gulp-buildinfo-replace)
+[![Dependency Status](http://img.shields.io/david/hal313/gulp-buildinfo-replace.svg?style=flat-square)](https://david-dm.org/hal313/gulp-buildinfo-replace)
 
 ## Information
 
 <table>
 <tr>
-<td>Package</td><td>gulp-npm-buildinfo-replace</td>
+<td>Package</td><td>gulp-buildinfo-replace</td>
 </tr>
 <tr>
 <td>Description</td>
@@ -32,14 +32,14 @@
 #### Install
 
 ```bash
-$ npm install gulp-npm-buildinfo-replace --save-dev
+$ npm install gulp-buildinfo-replace --save-dev
 ```
 
 ## Example
 
 ```js
 var gulp = require('gulp');
-var buildInfoReplace = require('gulp-npm-buildinfo-replace');
+var buildInfoReplace = require('gulp-buildinfo-replace');
 
 // Basic usage:
 gulp.task('buildInfo', function(){
@@ -187,4 +187,4 @@ Example:
 
 ## LICENSE
 
-[MIT License](https://raw.githubusercontent.com/hal313/gulp-npm-buildinfo-replace/master/LICENSE)
+[MIT License](https://raw.githubusercontent.com/hal313/gulp-buildinfo-replace/master/LICENSE)
